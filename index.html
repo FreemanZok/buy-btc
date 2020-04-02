@@ -21,9 +21,9 @@
       <div class="modal-wrapper">
         <div class="modal-pic-wrapper">
           <div class="help-slider">
-            <div><img class="help-img" src="public/img/receve-btc.png" alt=""></div>
-            <div> <img class="help-img" src="public/img/receve-btc.png" alt=""></div>
-            <div> <img class="help-img" src="public/img/receve-btc.png" alt=""></div>
+            <div><img class="help-img" src="../img/receve-btc.png" alt=""></div>
+            <div> <img class="help-img" src="../img/receve-btc.png" alt=""></div>
+            <div> <img class="help-img" src="../img/receve-btc.png" alt=""></div>
              
           </div>
         </div>
@@ -63,7 +63,7 @@
                     قبل از خرید بیت کوین، باید کیف پولش محیا بشه.<br>
                     اینجا
                     <div class="down-wallet-btn">
-                      <img class="logo-img" src="public/img/logo-exodos.PNG">
+                      <img class="logo-img" src="../img/logo-exodos.PNG">
                     </div>
                     رو کلیک کن تا کیف پول Exodus دانلود بشه.<br>
                     روی کامپیوترت نصبش گن
@@ -108,37 +108,55 @@
 
         <!-- Level 3 -->
         <h2 class="head-text level-3-txt hide">
-          <span> مشخصاتت رو بده</span>
-          <span class="emoji-smiling"> 👍</span>
+          <span class="give-info-txt"> لطفن مشخصاتت</span>
+          <span class="emoji"> 👍</span>
           <span class="emoji-expressionless">😑</span>
         </h2>
         <div class="level-3 ">
-
-          <input class="in" id="name" type="text" name="name" placeholder="نام" />
-          <input class="in" id="mobile" type="text" name="mobile" placeholder="شماره موبایل" />
-          <input class="in" id="btc-wallet-address" type="text" name="btc-wallet-address"
-            placeholder="شماره واریز بیت کوین شما" />
-          <input class="submit" type="submit" value="برو پرداخت" />
-
+          <div class="input-wrap">
+            <input class="in" id="name" type="text" name="name" placeholder="نام" />
+            <div class="error hide">خالی</div>
+          </div>
+          <div class="input-wrap">
+            <input class="in" id="mobile" type="text" name="mobile" placeholder="شماره موبایل" />
+            <div class="error hide">خالی</div>
+          </div>
+          <div class="input-wrap">
+            <input class="in" id="btc-wallet-address" type="text" name="btc-wallet-address" placeholder="شماره واریز بیت کوین شما" />
+            <div class="error hide">خالی</div>
+          </div>
+          <input class="submit" type="submit" value="ثبت و پرداخت" />
         </div>
+
+        <!-- Level 4 -->
+        <h2 class="level-4-txt hide">
+          <span class="customer-name"></span> 
+          <span class="head-text">جان</span> 
+          <div class="head-text">اطلاعات شما ثبت شد</div>
+          <span class="emoji-smiling">😘</span>
+          <div class="head-text"> و بریم پرداخت</div>  
+          <span class="emoji-smiling">✌️</span>  
+          <span class="emoji-expressionless">😑</span>
+        </h2>
+
 
         <!-- other -->
         <div class="dont-want clearfix">
           <span class="dont-txt hide">نمیخوام</span>
           <div class="level-3-help-btn help-receave-code hide">
             <span class="">شماره واریز من کجاست؟</span>
-            <!-- <span class="emoji ">🤔</span> -->
+           
           </div>
           <div class="level-3-help-btn wallet-btn-slide hide">
             <span class=""> کیف پول ندارم</span>
-            <!-- <span class="emoji">🙁</span> -->
+          
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <script type="text/javascript" src="./public/js/slick.min.js"></script>
+  <script type="text/javascript" src="js/slick.min.js"></script>
 </body>
 
 </html>

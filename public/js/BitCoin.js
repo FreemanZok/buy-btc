@@ -1,4 +1,4 @@
-var name, mobile, walletNumber;
+var name, mobile, walletNumber, ghasem;
 var CounterUser = 0;
 var Users = [];
 var UserInfo = {
@@ -48,6 +48,9 @@ $(document).ready(function () {
     $(".level-3-help-btn").addClass("hide");
     $('.level-3').slideUp();
 
+
+    $('.level-4').slideUp();
+
     setTimeout(function () {
       $(".buy-btc").removeClass("seen-plans").removeClass("give-number");
       $(".want").removeClass("hide");
@@ -57,9 +60,64 @@ $(document).ready(function () {
       $(".order-txt-2").hide();
       $(".order-txt-1").fadeIn("slow");
       $(".level-3-txt").addClass("hide");
-
+      $(".level-4-txt").addClass("hide");
     }, 600);
   });
+
+
+  $(document).on("click", ".submit", function () {
+
+
+    UserInfo.name = $('#name').val();
+    UserInfo.mobile = $('#mobile').val();
+    UserInfo.walletNumber = $('#btc-wallet-address').val();
+
+    if (UserInfo.name.length == 0) {
+      $(".give-info-txt").html('لطفن یک اسم انتخاب کنید').addClass("errors-color");
+      $(".level-3-txt .emoji").html("🧐");
+
+      
+    }
+    else if (UserInfo.mobile.length < 11) {
+      
+      $(".give-info-txt").html('شماره موبایل کم است').addClass("errors-color");
+      $(".level-3-txt .emoji").html("🧐");
+    }
+    else if (UserInfo.mobile.length > 11) {
+     
+      $(".give-info-txt").html('شماره موبایل اضافی است').addClass("errors-color");
+      $(".level-3-txt .emoji").html("🧐");
+    }
+    else if (UserInfo.walletNumber.length < 1) {      
+    
+      $(".give-info-txt").html("کد کیف پول خالی مونده").addClass("errors-color");
+      $(".level-3-txt .emoji").html("🧐");
+    }
+
+    else{
+      $.post("/backpage", UserInfo, function (result) {
+          
+        // shows level-5
+        $('.level-3-txt, .level-3-help-btn').addClass("hide");
+        $('.level-3').slideUp();
+        $('.level-4-txt').removeClass("hide");
+        $('.dont-want').addClass("hide");
+        $(".buy-btc").removeClass("give-number").removeClass("seen-plans");
+        $(".buy-btc").addClass("level-4-wrap");
+  
+        $('.customer-name').html(UserInfo.name);
+  
+        window.setTimeout(function () {
+          window.open("http://localhost:9999/backpage");
+        }, 1500);
+  
+      });
+    }
+    
+  });
+
+
+
 
   $(document).on("click", ".wallet-btn-slide", function () {
     if ($('.wallet-btn-slide').hasClass('active-wallet')) {
@@ -94,23 +152,7 @@ $(document).ready(function () {
 
   // Submit Customer Data
 
-  $(document).on("click", ".submit", function (e) {
-    // event.preventDefault(e)
 
-    UserInfo.name = $('#name').val();
-    UserInfo.mobile = $('#mobile').val();
-    UserInfo.walletNumber = $('#btc-wallet-address').val();
-
-    $.post("/backpage", UserInfo, function (result) {
-      console.log(result);
-      var ali= JSON.parse(result);
-      console.log(ali);
-      
-      
-      
-      
-    });
-  });
 });
 
 
